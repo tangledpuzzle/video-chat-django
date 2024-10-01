@@ -1,41 +1,90 @@
-# LinkedIn Company Profile Scraper
+# 🔥 Batch Meet
+Batch Meet is an online Community Chat Application mainly used for meeting and remote file access.
 
-## Introduction
-This project is aimed to scrape public company profile data from LinkedIn and store them into Google Sheets. The project utilizes ZenRows API for web scraping in order to bypass LinkedIn's CAPTCHA tools and avoid IP blocking problems caused by sending too many requests in a short period of time. Axios and cheerio are used for API interaction. 8 requests are sent in parallel each time and the results are saved into a Google Sheet.
+# 💎 Features
+- User can create Chat Rooms.
+- User can Communicate on a Group call.
+- Group Call User Controls.
+- Server can handle more than 50 users/ call.
+- Live Video and Audio Interaction.
+- Unique room name for chat room.
 
-## Pre-requisites
-You need to fill up the environment variables in the .env. Here is an example file:
+# ⚙️ Prerequisites
 
-.env.example:
+- You need to have python installed. You can install it from microsoft store or follow this [guide](https://www.geeksforgeeks.org/how-to-install-python-on-windows/).
+- Django
+- Redis
+- Agora.io Account
+
+# Setting up a Virtual Enviroment
+
+It’s a common practice to have your Python apps and their instances running in virtual environments. Virtual environments allow different package sets and configurations to run simultaneously, and avoid conflicts due to incompatible package versions. 
+
+Create a Virtual Enviroment in python by executing following command.
+```bash
+$ python3 -m venv env
 ```
-GCLOUD_PROJECT=
-GOOGLE_APPLICATION_CREDENTIALS=./service_account_credentials.json
-SPREADSHEETID=
-SHEETNAME=
-PARALLEL=8
-APIKEY=
+activate the virtual environment.
+```bash
+# On Unix or MacOS (bash shell): 
+/path/to/venv/bin/activate
+
+# On Unix or MacOS (csh shell):
+/path/to/venv/bin/activate.csh
+
+# On Unix or MacOS (fish shell):
+/path/to/venv/bin/activate.fish
+
+# On Windows (command prompt):
+\path\to\venv\Scripts\activate.bat
+
+# On Windows (PowerShell):
+\path\to\venv\Scripts\Activate.ps1
 ```
-Ensure you have node.js installed, and the suitable authentication and access permissions for Zenrows and Google Sheets API.
 
-## Steps to run the project:
 
-## Installation
+# Installation:
+now install all the dependiencies
+```bash
+ $ pip install requirements.txt
+```
+Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design. Built by experienced developers, it takes care of much of the hassle of web development, so you can focus on writing your app without needing to reinvent the wheel. It’s free and open source. 
 
-1. Clone the repository from [here](https://github.com/flurryunicorn/linkedinScraping-using-zenrow).
-2. Run `npm install` to install all the necessary dependencies.
-3. Create a `.env` file based on the example `.env.example` and fill it with your real credentials.
-4. Run the scraping command using `node index.js`.
+## Agora IO Setup:
+create an Agora account by signing on agora.io 
 
-Make sure your Googlesheet is shared with the client email.
+create an App, copy the App id and App certificate from there and Paste it in the following files:
 
-## Data Storage
-The scraped data is stored in a Google Sheet using Google Sheets API (googleapis). This makes it easy to view, share, and work with the scraped data. The spreadsheet ID and sheet name are specified in the .env file.
+/base/views.py
+/base/static/js/stream.js
 
-## Built With
-- Node.js
-- Axios - Used to make HTTP requests 
-- Cheerio - Used for web scraping
-- ZenRows API - Used to bypass CAPTCHA and IP blocking
-- Google Sheets API (googleapis) - Used to store the scraped data
+After placing App id and App certificate you're ready to go.
+# App Demo
+### Login Screen:
+<img src="https://github.com/rimmelasghar/Video-chat-app-Django/blob/master/App%20Images/img1.PNG">
+### Meeting Room Screen
+<img src="https://github.com/rimmelasghar/Video-chat-app-Django/blob/master/App%20Images/img2.PNG">
 
-Feel free to fork or clone this repository for your own purposes. Contributions are also welcomed!
+# Working:
+Thats it! You are ready to go. </br>
+This project uses Redis channel as a channel Layer.
+```bash
+$ docker run -p 6379:6379 -d redis:5
+```
+
+run the Project by executing this.
+
+```bash
+$ python manage.py runserver
+```
+
+Project will be available on
+``http://127.0.0.1:8000``
+
+# Troubleshooting
+If you are facing any problems, feel free to open an issue or contact me on `rimmelasghar4@gmail.com` 
+
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg)](https://opensource.org/licenses/MIT)
+<br>
+Code by Rimmel with ❤
